@@ -1,0 +1,22 @@
+# Customer-engagement material — kept local, not part of the reusable baseline.
+# Contains the security brief, live-validation findings and the test harness.
+internal/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Local policy artefacts — never commit these
+*.jsonl
+policy-audit*.log
+capture*.jsonl
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

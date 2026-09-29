@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "matcher": "bash|powershell",
+        "exec": "C:\\Program Files\\Python312\\python.exe",
+        "args": ["C:\\Program Files\\GitHubCopilotPolicy\\copilot_policy_guard.py", "pre-tool"],
+        "timeoutSec": 15
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "exec": "C:\\Program Files\\Python312\\python.exe",
+        "args": ["C:\\Program Files\\GitHubCopilotPolicy\\copilot_policy_guard.py", "post-tool"],
+        "timeoutSec": 15
+      }
+    ],
+    "userPromptTransformed": [
+      {
+        "type": "command",
+        "exec": "C:\\Program Files\\Python312\\python.exe",
+        "args": ["C:\\Program Files\\GitHubCopilotPolicy\\copilot_policy_guard.py", "prompt"],
+        "timeoutSec": 15
+      }
+    ],
+    "permissionRequest": [
+      {
+        "type": "command",
+        "exec": "C:\\Program Files\\Python312\\python.exe",
+        "args": ["C:\\Program Files\\GitHubCopilotPolicy\\copilot_policy_guard.py", "permission"],
+        "timeoutSec": 15
+      }
+    ]
+  }
+}

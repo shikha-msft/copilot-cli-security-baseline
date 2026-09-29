@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse":            [{ "type": "command", "exec": "C:\\Program Files\\Python312\\python.exe", "args": ["C:\\Program Files\\GitHubCopilotPolicy\\copilot_policy_guard.py", "capture"], "env": { "COPILOT_POLICY_CAPTURE_LOG": "C:\\ProgramData\\GitHub\\Copilot\\hook-capture.jsonl" }, "timeoutSec": 5 }],
+    "postToolUse":           [{ "type": "command", "exec": "C:\\Program Files\\Python312\\python.exe", "args": ["C:\\Program Files\\GitHubCopilotPolicy\\copilot_policy_guard.py", "capture"], "env": { "COPILOT_POLICY_CAPTURE_LOG": "C:\\ProgramData\\GitHub\\Copilot\\hook-capture.jsonl" }, "timeoutSec": 5 }],
+    "userPromptTransformed": [{ "type": "command", "exec": "C:\\Program Files\\Python312\\python.exe", "args": ["C:\\Program Files\\GitHubCopilotPolicy\\copilot_policy_guard.py", "capture"], "env": { "COPILOT_POLICY_CAPTURE_LOG": "C:\\ProgramData\\GitHub\\Copilot\\hook-capture.jsonl" }, "timeoutSec": 5 }],
+    "permissionRequest":     [{ "type": "command", "exec": "C:\\Program Files\\Python312\\python.exe", "args": ["C:\\Program Files\\GitHubCopilotPolicy\\copilot_policy_guard.py", "capture"], "env": { "COPILOT_POLICY_CAPTURE_LOG": "C:\\ProgramData\\GitHub\\Copilot\\hook-capture.jsonl" }, "timeoutSec": 5 }]
+  }
+}
