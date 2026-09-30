@@ -4,7 +4,7 @@ A reference configuration for running **GitHub Copilot CLI** under enterprise gu
 
 Built entirely from GitHub's documented controls — enterprise managed permissions, policy hooks and sandboxing — and confirmed working against a live Copilot CLI (1.0.89, Windows 11).
 
-> **Not an official or supported GitHub or Microsoft configuration.** GitHub does not publish a baseline for Copilot CLI policy hooks or managed settings; they document the building blocks and each organisation assembles its own policy from them. This is one such assembly. Validate it on your own standard image, and have your security team review it, before relying on it.
+> **Not an official or supported GitHub or Microsoft configuration.** GitHub does not publish a baseline for Copilot CLI policy hooks or managed settings; they document the building blocks and each organisation assembles its own policy from them. This is one such assembly. Adopting organisations should validate it on their own standard image, and have their security team review it, before relying on it.
 
 ## What problem it solves
 
@@ -17,7 +17,7 @@ This baseline provides a concrete, testable answer to both.
 
 ## What's here
 
-**[`copilot-cli-baseline/`](./copilot-cli-baseline/)** — the pack. Start with its [README](./copilot-cli-baseline/README.md) for what it does, or [INSTALL.md](./copilot-cli-baseline/INSTALL.md) to deploy it.
+**[`copilot-cli-baseline/`](./copilot-cli-baseline/)** — the pack. Its [README](./copilot-cli-baseline/README.md) describes what it does; [INSTALL.md](./copilot-cli-baseline/INSTALL.md) covers deployment.
 
 | Path | Purpose |
 |---|---|
@@ -33,7 +33,7 @@ Two layers, neither of which a developer can switch off.
 
 **Policy hooks** are a local script the CLI calls before a command runs, after it returns, and when a prompt is submitted. They catch dangerous *combinations* that managed settings cannot express, and provide the only mechanism for redacting secrets before the model sees them.
 
-Managed settings can be published centrally from your enterprise `.github-private` repository — no machine access required. Policy hooks are machine-local by design and need software distribution.
+Managed settings can be published centrally from an enterprise `.github-private` repository — no machine access required. Policy hooks are machine-local by design and need software distribution.
 
 ## Scope and limits
 
@@ -44,7 +44,7 @@ These are strong guardrails, not a complete DLP solution:
 - Prompts are **redacted, not blocked** — a pasted secret is masked before the model receives it, but the CLI cannot refuse the prompt itself.
 - Detection is **pattern-based** — a secret with no recognisable format will not be caught.
 - The command rules are a **speed bump, not a boundary** — the managed deny rules and the OS sandbox are the real boundary.
-- Pair this with endpoint and network DLP for any guarantee about data leaving the machine.
+- Endpoint and network DLP remain necessary for any guarantee about data leaving the machine.
 
 ## Reference
 

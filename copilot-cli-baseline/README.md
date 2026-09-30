@@ -2,7 +2,7 @@
 
 A reference configuration that blocks high-risk shell commands and keeps secrets out of the model, using GitHub's documented enterprise controls. Scoped to **Windows** for the initial proof of value.
 
-> **Not an official or supported GitHub or Microsoft configuration.** Built from GitHub's published documentation (September 2026) and confirmed working against a live Copilot CLI 1.0.89 on Windows 11 — hook loading, command blocking and secret redaction were each observed in a real session. GitHub does not publish an official baseline; they document the building blocks and each organisation assembles its own policy from them. Validate on your standard image before relying on it.
+> **Not an official or supported GitHub or Microsoft configuration.** Built from GitHub's published documentation (September 2026) and confirmed working against a live Copilot CLI 1.0.89 on Windows 11 — hook loading, command blocking and secret redaction were each observed in a real session. GitHub does not publish an official baseline; they document the building blocks and each organisation assembles its own policy from them. Validation on the adopting organisation's standard image is required before relying on it.
 
 ## What it does
 
@@ -41,11 +41,11 @@ The hooks catch dangerous *combinations* that managed settings cannot express, a
 
 See **[INSTALL.md](./INSTALL.md)**.
 
-In short: two files land on each machine (the guard script and the hook config), and the guard needs Python 3.8+ at a fixed, admin-owned path. `managed-settings.json` can either be copied locally or published once to your enterprise `.github-private` repository — the central route needs no machine access and no local admin rights.
+In short: two files land on each machine (the guard script and the hook config), and the guard needs Python 3.8+ at a fixed, admin-owned path. `managed-settings.json` can either be copied locally or published once to an enterprise `.github-private` repository — the central route needs no machine access and no local admin rights.
 
 ## What it does not do
 
-Be explicit about these when presenting the baseline.
+These limits should be stated explicitly when the baseline is presented.
 
 - **Prompts are redacted, not blocked.** A pasted secret is masked before the model receives it, but the CLI cannot refuse the prompt itself.
 - **Detection is pattern-based.** A secret with no recognisable format — an unlabelled high-entropy string — will not be caught.
